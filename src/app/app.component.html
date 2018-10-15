@@ -1,0 +1,19 @@
+
+<div class="container">    
+ <form #todoForm= "ngForm" (ngSubmit)="todoSubmit(todoForm.value);todoForm.resetForm()">
+  <div class="form-group">
+  <h1 class="text-center text-primary">Grocery List</h1>
+   <div class="input-group-prepend">
+       <input type="text" #todo class="form-control" placeholder="Add Grocery items" name="todo" ngModel>
+       <p>{{todo.value}}</p>
+   <span class="input-group-text" (click)="addTodo(todo.value)"><i class="material-icons" style="display: inline;">add</i></span>
+   </div>      
+  </div>   
+ </form>        
+    <div class="data">
+        <p class="listheader">List of items mentioned</p>
+  <ul class="list-instyled">
+   <li *ngFor="let todo of todoArray"><i (click)="deleteItem(todo)" class="material-icons">delete</i>{{todo}} </li>
+  </ul>
+  </div>    
+</div>
